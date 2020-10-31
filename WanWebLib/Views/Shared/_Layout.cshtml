@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 副標</title>
+    @Styles.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jquery")
+    <style>
+        .ui-menu {
+            width: 150px;
+        }
+    </style>
+
+</head>
+<body>
+    @* 選單區塊--------------------------------- *@
+    <div style="width:90%;">
+        <div style="display:inline-block;">
+            <ul id="menu">
+                <li class="ui-state-disabled">
+                    <div>選單範例</div>
+                </li>
+                <li><div>@Html.ActionLink("首頁","Index","Home")</div></li>
+                <li>
+                    <div>文件類</div>
+                    <ul>
+                        <li><div>@Html.ActionLink("Word", "Index","Word")</div></li>
+                        <li><div>Excel</div></li>
+                        <li><div>PDF</div></li>
+                    </ul>
+                </li>
+                <li><div>選單2</div></li>
+                <li>
+                    <div>選單3</div>
+                    <ul>
+                        <li class="ui-state-disabled"><div>不可選的選單</div></li>
+                        <li><div>選單3-1</div></li>
+                        <li><div>選單3-2</div></li>
+                    </ul>
+                </li>
+                <li>
+                    <div>選單4-多層選單</div>
+                    <ul>
+                        <li>
+                            <div>選單4-1</div>
+                            <ul>
+                                <li><div>選單4-1-1</div></li>
+                                <li><div>選單4-1-2</div></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div>選單4-2</div>
+                            <ul>
+                                <li><div>選單4-2-1</div></li>
+                                <li><div>選單4-2-2</div></li>
+                                <li><div>選單4-2-3</div></li>
+                            </ul>
+                        </li>
+                        <li><div>選單4-3</div></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+
+        @* 選單區塊--------------------------------- *@
+        <div class="container body-content" style="display:inline-block; margin-top:0; position:absolute;">
+            @* 主要內容位置 *@
+            @RenderBody()
+        </div>
+    </div>
+
+
+   
+    @RenderSection("scripts", required: false)
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - 範本尾</p>
+    </footer>
+</body>
+
+</html>
+
+<script charset="UTF8" type="text/javascript">
+    $(function () {
+        $("#menu").menu();
+    });
+
+</script>
