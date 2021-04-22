@@ -121,6 +121,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DOC\WordController.cs" />
+    <Compile Include="Controllers\DOC\XmlController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -163,6 +164,7 @@
     <None Include="packages.config" />
     <Content Include="Views\Word\Index.cshtml" />
     <Content Include="SampleFile\測試下載用檔案.docx" />
+    <Content Include="Views\Xml\XmlIndex.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

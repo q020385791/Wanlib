@@ -1,19 +1,37 @@
-﻿@{ 
+﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<span>test</span>
+<button onclick="DownLoadSampleFile()">測試直接下載</button>
+@Html.ActionLink("測試直接下載文字", "DownLoadWordFile", "Word", "Word")
+<button onclick="OpenAtChrome()">瀏覽器開啟</button>
+@*跳轉同一頁開啟*@
+<button onclick="PostOpen()">瀏覽器開啟</button>
+
+@*開新分頁*@
+@Html.ActionLink("開新分頁", "OpenAtChrome", "Word", new { target = "_blank" })
+<a href="#" onclick='window.open("@Url.Action("OpenAtChrome", "Word","Word")");return false;'>這也是開新分頁</a>
+
+
 <script type="text/javascript">
     $(function () {
-     
+
 
     });
 
-    function DownLoadSampleFile()
-    {
-        $.post("DownLoadWordFile", function (data) { });
-            
+    function DownLoadSampleFile() {
+        @*$.post("@Url.Action("DownLoadWordFile", "Word","Word")"  , function (data) { });*@
+        window.location="@Url.Action("DownLoadWordFile", "Word","Word")";
 
+    }
+    function OpenAtChrome() {
+         @*$.post("@Url.Action("OpenAtChrome", "Word","Word")", function (data) { });*@
+        window.location.href = "@Url.Action("OpenAtChrome", "Word","Word")";
+    }
+    function PostOpen()
+    {
+         $.post("@Url.Action("PostOpenAtChrome", "Word","Word")", function (data) { });
     }
 
 </script>
-<span>test</span>
-<button onclick="DownLoadSampleFile()">測試直接下載</button>
